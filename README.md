@@ -28,6 +28,8 @@ The Delivery Pricing API provides endpoints to manage and calculate delivery pri
 | `/calculatePrice`          | POST   | Calculate delivery price for a specific item and zone | JSON: `{ "zone": "central", "organization_id": 1, "total_distance": 12, "item_id": 5 }` | JSON: `{ "total_price": 24.5 }`                           |
 | `/pricing/:orgId/:itemId`  | GET    | Retrieve pricing details by organization ID and item ID | No request parameters needed                                | Pricing details object                                    |
 
+**Note:** The API has robust error handling and returns proper error information in JSON format. In case of errors, appropriate HTTP status codes are returned along with descriptive error messages in JSON format. This ensures clear communication of errors and facilitates easier debugging and troubleshooting.
+
 ## Conclusion
 
 The Delivery Pricing API provides a convenient way to manage and calculate delivery prices for various food items. By utilizing the provided endpoints, users can easily create, retrieve, update, delete, and calculate pricing information for organizations, ensuring accurate and efficient delivery cost calculations.
