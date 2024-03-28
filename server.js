@@ -18,7 +18,6 @@ app.post("/calculatePrice", async (req, res) => {
   try {
     const { zone, organization_id, total_distance, item_id } = req.body;
 
-    // Fetch pricing details based on organization, item, and zone
     const query = `
           SELECT base_price_in_cents, km_price_in_cents , base_distance_in_km
           FROM Pricing 
@@ -36,9 +35,8 @@ app.post("/calculatePrice", async (req, res) => {
     const { base_price_in_cents, km_price_in_cents, base_distance_in_km } =
       rows[0];
 
-    // Calculate total price
-    const basePrice = base_price_in_cents / 100; // Convert base price from cents to euros
-    const kmPrice = km_price_in_cents / 100; // Convert per km price from cents to euros
+    const basePrice = base_price_in_cents / 100;
+    const kmPrice = km_price_in_cents / 100;
     const totalPrice =
       basePrice + Math.max(total_distance - base_distance_in_km, 0) * kmPrice;
 
