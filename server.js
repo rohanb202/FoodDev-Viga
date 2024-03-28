@@ -49,13 +49,14 @@ const htmlContent = `
 `;
 
 // Sending the HTML content as response
-
+const apiV1Router = express.Router();
 app.get("/", (req, res) => {
   res.send(htmlContent);
 });
-app.use("/items", itemsRouter);
-app.use("/organizations", orgRouter);
-app.use("/pricing", pricingRoute);
+app.use("/api", apiV1Router);
+apiV1Router.use("/items", itemsRouter);
+apiV1Router.use("/organizations", orgRouter);
+apiV1Router.use("/pricing", pricingRoute);
 
 app.post("/calculatePrice", async (req, res) => {
   try {

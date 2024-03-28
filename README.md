@@ -14,19 +14,19 @@ The Delivery Pricing API provides endpoints to manage and calculate delivery pri
 
 ## API Routes
 
-| Route                      | Method | Description                                           | Request Format                                              | Response Format                                           |
-|----------------------------|--------|-------------------------------------------------------|-------------------------------------------------------------|------------------------------------------------------------|
-| `/items`                   | GET    | Retrieve all items available for delivery             | No request parameters needed                                | Array of item objects                                     |
-| `/items`                   | POST   | Create a new item for delivery                        | JSON: `{ "type": "perishable", "description": "Organic apples" }` | Newly created item object                                 |
-| `/items/:id`               | DELETE | Delete an item with the specified ID                  | No request body needed                                      | JSON: `{ "message": "Item deleted successfully" }`         |
-| `/organizations`           | GET    | Retrieve all organizations with their pricing structures | No request parameters needed                                | Array of organization objects                             |
-| `/organizations`           | POST   | Create a new organization                             | JSON: `{ "name": "Fresh Mart" }`                           | Newly created organization object                         |
-| `/organizations/:id`       | DELETE | Delete an organization with the specified ID           | No request body needed                                      | JSON: `{ "message": "Organization deleted successfully" }` |
-| `/pricing`                 | GET    | Retrieve pricing details for all organizations         | No request parameters needed                                | Array of pricing objects                                  |
-| `/pricing`                 | POST   | Create pricing details for an organization            | JSON: `{ "organization_id": 1, "item_id": 5, "zone": "central", "base_distance_in_km": 5, "base_price_in_cents": 1200, "km_price_in_cents": 200 }` | Newly created pricing object                             |
-| `/pricing/:id`             | DELETE | Delete pricing details with the specified ID           | No request body needed                                      | JSON: `{ "message": "Pricing deleted successfully" }`     |
-| `/calculatePrice`          | POST   | Calculate delivery price for a specific item and zone | JSON: `{ "zone": "central", "organization_id": 1, "total_distance": 12, "item_id": 5 }` | JSON: `{ "total_price": 24.5 }`                           |
-| `/pricing/:orgId/:itemId`  | GET    | Retrieve pricing details by organization ID and item ID | No request parameters needed                                | Pricing details object                                    |
+| Route                        | Method | Description                                           | Request Format                                              | Response Format                                           |
+|------------------------------|--------|-------------------------------------------------------|-------------------------------------------------------------|------------------------------------------------------------|
+| `/api/items`                 | GET    | Retrieve all items available for delivery             | No request parameters needed                                | Array of item objects                                     |
+| `/api/items`                 | POST   | Create a new item for delivery                        | JSON: `{ "type": "perishable", "description": "Organic apples" }` | Newly created item object                                 |
+| `/api/items/:id`             | DELETE | Delete an item with the specified ID                  | No request body needed                                      | JSON: `{ "message": "Item deleted successfully" }`         |
+| `/api/organizations`         | GET    | Retrieve all organizations with their pricing structures | No request parameters needed                                | Array of organization objects                             |
+| `/api/organizations`         | POST   | Create a new organization                             | JSON: `{ "name": "Fresh Mart" }`                           | Newly created organization object                         |
+| `/api/organizations/:id`     | DELETE | Delete an organization with the specified ID           | No request body needed                                      | JSON: `{ "message": "Organization deleted successfully" }` |
+| `/api/pricing`               | GET    | Retrieve pricing details for all organizations         | No request parameters needed                                | Array of pricing objects                                  |
+| `/api/pricing`               | POST   | Create pricing details for an organization            | JSON: `{ "organization_id": 1, "item_id": 5, "zone": "central", "base_distance_in_km": 5, "base_price_in_cents": 1200, "km_price_in_cents": 200 }` | Newly created pricing object                             |
+| `/api/pricing/:id`           | DELETE | Delete pricing details with the specified ID           | No request body needed                                      | JSON: `{ "message": "Pricing deleted successfully" }`     |
+| `/api/calculatePrice`        | POST   | Calculate delivery price for a specific item and zone | JSON: `{ "zone": "central", "organization_id": 1, "total_distance": 12, "item_id": 5 }` | JSON: `{ "total_price": 24.5 }`                           |
+| `/api/pricing/:orgId/:itemId`| GET    | Retrieve pricing details by organization ID and item ID | No request parameters needed                                | Pricing details object                                    |
 
 **Note:** The API has robust error handling and returns proper error information in JSON format. In case of errors, appropriate HTTP status codes are returned along with descriptive error messages in JSON format. This ensures clear communication of errors and facilitates easier debugging and troubleshooting.
 
